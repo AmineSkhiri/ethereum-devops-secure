@@ -1,0 +1,21 @@
+---
+- name: Basic provisioning for Ethereum Node
+  hosts: ethereum_nodes
+  become: yes
+  roles:
+    - common
+    - docker
+    - ethereum-node
+  tasks:
+    - name: Update apt cache and upgrade all packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install basic utilities
+      apt:
+        name:
+          - curl
+          - git
+          - ufw
+        state: present
