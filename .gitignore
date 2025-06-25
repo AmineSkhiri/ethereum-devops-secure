@@ -5,3 +5,5 @@ terraform/terraform.tfvars
 .env
 __pycache__/
 *.pyc
+.terraform/
+.terragrunt-cache/
