@@ -6,7 +6,7 @@ This project automates secure Ethereum node deployment on AWS using:
 - Ansible (server & app provisioning)
 - Docker (containerized Ethereum client)
 - Prometheus & Grafana (monitoring, alerting)
-- CI/CD pipelines (GitHub Actions/Jenkins, later)
+- CI/CD pipelines (GitHub Actions/Jenkins)
 
 **Main Goals:**
 - Reduce deployment time
@@ -18,8 +18,8 @@ This project automates secure Ethereum node deployment on AWS using:
 
 - `terraform/` - Infrastructure modules (with Terragrunt wrappers)
 - `ansible/` - Server configuration and Ethereum setup
-- `monitoring/` - Monitoring/alert configs (to come)
-- `ci-cd/` - Pipelines (to come)
+- `monitoring/` - Monitoring/alert configs 
+- `ci-cd/` - Pipelines 
 
 ---
 
