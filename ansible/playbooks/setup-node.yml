@@ -6,6 +6,7 @@
     - common
     - docker
     - ethereum-node
+    - monitoring  
   tasks:
     - name: Update apt cache and upgrade all packages
       apt:

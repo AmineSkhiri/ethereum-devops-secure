@@ -1,0 +1,33 @@
+---
+- name: Ensure monitoring directory exists
+  file:
+    path: /home/ubuntu/monitoring
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: 0755
+
+- name: Copy docker-compose.yml
+  copy:
+    src: monitoring/docker-compose.yml
+    dest: /home/ubuntu/monitoring/docker-compose.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: 0644
+
+- name: Copy prometheus.yml
+  copy:
+    src: monitoring/prometheus.yml
+    dest: /home/ubuntu/monitoring/prometheus.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: 0644
+
+- name: Start Prometheus & Grafana
+  become: yes
+  become_user: ubuntu
+  shell: |
+    cd /home/ubuntu/monitoring
+    docker compose up -d
+  args:
+    chdir: /home/ubuntu/monitoring

@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'node'
+    static_configs:
+      - targets: ['localhost:9100']  # If node_exporter runs on same host as Prometheus
+
+  - job_name: 'geth'
+    static_configs:
+      - targets: ['localhost:6060']  # If Geth metrics enabled on 6060
