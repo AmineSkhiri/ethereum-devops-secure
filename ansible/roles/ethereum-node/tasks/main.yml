@@ -1,0 +1,18 @@
+---
+- name: Pull Ethereum Geth Docker image
+  docker_image:
+    name: ethereum/client-go
+    tag: stable
+    source: pull
+
+- name: Run Ethereum Node container
+  docker_container:
+    name: ethereum-node
+    image: ethereum/client-go:stable
+    state: started
+    restart_policy: always
+    ports:
+      - "30303:30303"
+      - "8545:8545"
+    command: >
+      --http --http.addr "0.0.0.0" --http.port 8545 --http.api "eth,net,web3"
